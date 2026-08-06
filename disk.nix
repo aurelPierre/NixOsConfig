@@ -1,0 +1,66 @@
+{
+	disko.devices = {
+		disk = {
+			main = {
+				device = "/dev/sda";
+				type = "disk";
+				content = {
+					type = "gpt";
+					partitions = {
+						bios = {
+							size = "2M";
+							type = "EF02";
+						};
+						boot = {
+							end = "+1G";
+							content = {
+								type = "filesystem";
+								format = "btrfs";
+								mountpoint = "/boot";
+							};
+						};
+						luks = {
+							size = "100%";
+							content = {
+								type = "luks";
+								name = "crypted";
+								settings = {
+									allowDiscards = true;
+								};
+								content = {
+									type = "btrfs";
+									mountpoint = "/";
+									subvolumes = {
+										"/home" = {
+											mountpoint = "/home";
+											mountOptions = [
+												"compress=zstd"
+													"noatime"
+													"nosuid"
+													"nodev"
+											];
+										};
+										"/var" = {
+											mountpoint = "/var";
+											mountOptions = [
+												"compress=zstd"
+													"noatime"
+											];
+										};
+										"/nix" = {
+											mountpoint = "/nix";
+											mountOptions = [
+												"compress=zstd"
+													"noatime"
+											];
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+}
