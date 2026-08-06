@@ -63,16 +63,6 @@
       # You can get the names of your inputs by running: swaymsg -t get_inputs
       # Read `man 5 sway-input` for more information about this section.
 
-      # By default, FR layout.
-      input type:keyboard {
-      	xkb_layout fr
-      	xkb_model  pc105
-        xkb_variant oss
-        # Should make it specific to Ryan Lahfa.
-      	repeat_delay 250
-      	repeat_rate 60
-      }
-
       ### Key bindings
       #
       # Basics:

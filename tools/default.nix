@@ -1,0 +1,13 @@
+{ config, pkgs, ... }: 
+{
+  imports = [ ./firefox.nix ];
+
+  programs.mtr.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    vscodium
+    vim
+    gitFull
+    unzip
+  ];
+}

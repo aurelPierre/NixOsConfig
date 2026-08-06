@@ -3,5 +3,7 @@
     imports = [
         ./filesystems/default.nix
         ./gui/default.nix
+        ./security/default.nix
+        ./tools/default.nix
     ];
 }
