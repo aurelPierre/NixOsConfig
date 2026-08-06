@@ -3,7 +3,7 @@
     networking.useDHCP = false;
     networking.networkmanager.enable = true;
 
-    environment.systemPackages = [
+    environment.systemPackages = with pkgs; [
         proton-vpn
     ];
 }
