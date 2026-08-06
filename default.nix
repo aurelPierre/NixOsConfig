@@ -5,5 +5,6 @@
         ./gui/default.nix
         ./security/default.nix
         ./tools/default.nix
+        ./network/default.nix
     ];
 }
