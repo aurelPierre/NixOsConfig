@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   inherit (lib) listToAttrs;
+in
 {
     programs.firefox = {
       enable = true;
