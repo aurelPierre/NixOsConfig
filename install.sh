@@ -2,5 +2,5 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko/
 nixos-generate-config --no-filesystems --root /mnt
 mv * /mnt/etc/nixos/
 mv .* /mnt/etc/nixos/
-nix flake /mnt/etc/nixos/ update --experimental-features "nix-command flakes"
+nix flake update --flake /mnt/etc/nixos --experimental-features "nix-command flakes"
 nixos-install --flake /mnt/etc/nixos#nixos 
