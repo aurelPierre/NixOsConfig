@@ -7,4 +7,6 @@
         ./tools/default.nix
         ./network/default.nix
     ];
+
+    system.stateVersion = "26.05";
 }
