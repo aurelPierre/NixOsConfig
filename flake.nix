@@ -20,5 +20,10 @@
             ./default.nix
         ];
       };
+
+    apps.x86_64-linux.install = {
+      type = "app";
+      program = "${self}/install.sh";
+    };
   };
 }
