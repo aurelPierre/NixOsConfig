@@ -55,7 +55,7 @@
 
     apps.${system}.install = {
       type = "app";
-      program = "${self}/bin/install";
+      program = "${install}/bin/install";
     };
   };
 }
