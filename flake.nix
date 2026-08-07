@@ -42,6 +42,13 @@
         echo "Installing..."
 
         nixos-install --root /mnt --flake /mnt/etc/nixos#local
+
+        echo "Set user password..."
+
+        nixos-enter
+        passwd daedalus
+
+        echo "Installation complete"
       '';
     };
   in

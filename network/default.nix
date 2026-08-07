@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+    networking.hostName = "labyrinth";
+
     networking.useDHCP = false;
     networking.networkmanager.enable = true;
 

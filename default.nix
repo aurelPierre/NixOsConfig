@@ -6,6 +6,7 @@
         ./security/default.nix
         ./tools/default.nix
         ./network/default.nix
+        ./users/default.nix
     ];
 
     system.stateVersion = "26.05";
