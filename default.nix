@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
     imports = [
-        ./hardware-configuration.nix
         ./filesystems/default.nix
         ./gui/default.nix
         ./security/default.nix
