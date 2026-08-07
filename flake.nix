@@ -37,7 +37,7 @@
         echo "Creating local flake..."
 
         cp ${./installer/flake.template.nix} /mnt/etc/nixos/flake.nix
-        nix flake lock --extra-experimental-features "nix-command flakes"
+        nix flake lock /mnt/etc/nixos --extra-experimental-features "nix-command flakes"
 
         echo "Installing..."
 
