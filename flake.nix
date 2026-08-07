@@ -19,12 +19,16 @@
     install = pkgs.writeShellApplication {
       name = "install";
 
+      runtimeInputs = [
+        disko.packages.${system}.default
+      ];
+
       text = ''
         set -euo pipefail
 
         echo "Formatting and mounting disks..."
 
-        nix --experimental-features "nix-command flakes" run ${disko}  -- --mode destroy,format,mount ${./filesystems/disk.nix}
+        disko --mode destroy,format,mount ${./filesystems/disk.nix}
 
         echo "Generating hardware configuration..."
 
