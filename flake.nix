@@ -45,10 +45,7 @@
 
         echo "Set user password..."
 
-        nixos-enter
-        passwd daedalus
-
-        echo "Installation complete"
+        nixos-enter -c 'passwd daedalus'
       '';
     };
   in
