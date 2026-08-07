@@ -24,9 +24,7 @@
 
         echo "Formatting and mounting disks..."
 
-        nix run ${disko} -- \
-          --mode destroy,format,mount \
-          ${./filesystems/disk.nix}
+        nix run ${disko} --experimental-features "nix-command flakes" \ -- --mode destroy,format,mount ${./filesystems/disk.nix}
 
         echo "Generating hardware configuration..."
 
