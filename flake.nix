@@ -40,7 +40,7 @@
 
         echo "Installing..."
 
-        nixos-install --flake /mnt/etc/nixos#local
+        nixos-install --root /mnt --flake /mnt/etc/nixos#local
       '';
     };
   in
