@@ -45,15 +45,12 @@
     };
   in
   {
-    nixosConfigurations.nixos =
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
+    nixosModules.default = {
+      imports = [
           disko.nixosModules.disko
           ./default.nix
-        ];
-      };
+      ];
+    };
 
     apps.${system}.install = {
       type = "app";

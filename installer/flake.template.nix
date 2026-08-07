@@ -14,7 +14,7 @@
         system = "x86_64-linux";
 
         modules = [
-          myconfig.NixOsConfig.default
+          myconfig.nixosModules.default
 
             ./hardware-configuration.nix
         ];
