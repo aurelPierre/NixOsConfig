@@ -9,5 +9,6 @@
     vim
     gitFull
     unzip
+    pavucontrol
   ];
 }
