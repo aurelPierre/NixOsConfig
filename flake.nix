@@ -42,6 +42,12 @@
         cp ${./installer/flake.template.nix} /mnt/etc/nixos/flake.nix
         nix flake lock /mnt/etc/nixos --extra-experimental-features "nix-command flakes"
 
+	echo "Set secure boot keys..."
+
+	nix-shell -p sbctl --command sbctl create-keys
+	nix-shell -p sbctl --command sbctl enroll-keys
+	mv /var/lib/sbctl/ /mnt/etc/secureboot
+
         echo "Installing..."
 
         nixos-install --root /mnt --flake /mnt/etc/nixos#local

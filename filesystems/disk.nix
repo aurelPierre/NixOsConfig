@@ -58,6 +58,41 @@
 					};
 				};
 			};
+			disk2 = {
+				device = "/dev/nvme1n1";
+				type = "disk";
+				content = {
+					type = "gpt";
+					partitions = {
+						luks = {
+							size = "100%";
+							content = {
+								type = "luks";
+								name = "crypted";
+								settings = {
+									allowDiscards = true;
+								};
+								content = {
+									type = "btrfs";
+									subvolumes = {
+										"/work" = {
+											mountpoint = "/work";
+											mountOptions = [
+												"compress=zstd"
+													"noatime"
+													"nosuid"
+													"nodev"
+											];
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
 		};
+		};
+
 	};
 }

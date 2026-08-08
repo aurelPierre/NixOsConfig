@@ -9,5 +9,12 @@
         ./users/default.nix
     ];
 
+	time.timeZone = "Europe/Paris";
+	
+	services.pipewire = {
+		enable = true;
+		pulse.enable = true;
+	};
+
     system.stateVersion = "26.05";
 }
