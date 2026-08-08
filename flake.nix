@@ -45,7 +45,7 @@
 	echo "Set secure boot keys..."
 
 	nix-shell -p sbctl --command "sbctl create-keys"
-	nix-shell -p sbctl --command "sbctl enroll-keys"
+	nix-shell -p sbctl --command "sbctl enroll-keys --yes-this-might-brick-my-machine"
 	mv /var/lib/sbctl/ /mnt/etc/secureboot
 
         echo "Installing..."
