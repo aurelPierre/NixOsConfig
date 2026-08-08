@@ -6,9 +6,12 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    lanzaboote.url = "github:nix-community/lanzaboote"
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko, ... }:
+  outputs = { self, nixpkgs, disko, lanzaboote, ... }:
   let
     system = "x86_64-linux";
 
@@ -53,7 +56,8 @@
     nixosModules.default = {
       imports = [
           disko.nixosModules.disko
-          ./default.nix
+          lanzaboote.nixosModules.lanzaboote
+	./default.nix
       ];
     };
 
