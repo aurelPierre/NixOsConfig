@@ -1,7 +1,7 @@
 {
 	disko.devices = {
 		disk = {
-			main = {
+			disk1 = {
 				device = "/dev/nvme0n1";
 				type = "disk";
 				content = {
@@ -16,16 +16,39 @@
 								mountpoint = "/boot";
 							};
 						};
-						luks = {
+						crypt_p1 = {
 							size = "100%";
 							content = {
 								type = "luks";
-								name = "crypted";
+								name = "p1";
+								settings = {
+									allowDiscards = true;
+								};
+												};
+						};
+					};
+				};
+			};
+			disk2 = {
+				device = "/dev/nvme1n1";
+				type = "disk";
+				content = {
+					type = "gpt";
+					partitions = {
+						crypt_p2 = {
+							size = "100%";
+							content = {
+								type = "luks";
+								name = "p2";
 								settings = {
 									allowDiscards = true;
 								};
 								content = {
 									type = "btrfs";
+									extraArgs = [
+										"-d raid1"
+										"/dev/mapper/p1"
+									];
 									mountpoint = "/";
 									subvolumes = {
 										"/home" = {
@@ -51,37 +74,13 @@
 													"noatime"
 											];
 										};
-									};
-								};
-							};
-						};
-					};
-				};
-			};
-			disk2 = {
-				device = "/dev/nvme1n1";
-				type = "disk";
-				content = {
-					type = "gpt";
-					partitions = {
-						luks = {
-							size = "100%";
-							content = {
-								type = "luks";
-								name = "crypted";
-								settings = {
-									allowDiscards = true;
-								};
-								content = {
-									type = "btrfs";
-									subvolumes = {
 										"/work" = {
 											mountpoint = "/work";
 											mountOptions = [
 												"compress=zstd"
-													"noatime"
-													"nosuid"
-													"nodev"
+												"noatime"
+												"nosuid"
+												"nodev"
 											];
 										};
 									};
