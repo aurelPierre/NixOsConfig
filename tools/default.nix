@@ -6,9 +6,14 @@
 
   environment.systemPackages = with pkgs; [
     vscodium
-    vim
+    vim-full
     gitFull
     unzip
+
+    discord
+
     pavucontrol
+
+    nixfmt
   ];
 }
