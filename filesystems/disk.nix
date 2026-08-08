@@ -7,15 +7,12 @@
 				content = {
 					type = "gpt";
 					partitions = {
-						bios = {
-							size = "2M";
-							type = "EF02";
-						};
-						boot = {
+						ESP = {
 							end = "+1G";
+							type = "EF00";
 							content = {
 								type = "filesystem";
-								format = "btrfs";
+								format = "vfat";
 								mountpoint = "/boot";
 							};
 						};
